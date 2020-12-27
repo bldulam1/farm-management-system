@@ -11,7 +11,8 @@
     "start:dev-client": "webpack-dev-server --mode development --inline --hot",
     "start:dev-generate": "graphql-codegen -w",
     "start": "run-p start:**",
-    "check:lint": "eslint src/ --ext .tsx,.ts,.js,.jsx"
+    "check:lint": "eslint src/ --ext .tsx,.ts,.js,.jsx",
+    "format": "prettier --write ."
   },
   "author": "pushkar8723@gmail.com",
   "license": "MIT",
@@ -48,6 +49,7 @@
     "husky": "^4.2.5",
     "netlify-lambda": "^1.6.3",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",

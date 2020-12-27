@@ -8,15 +8,13 @@ import App from './App';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-    uri: '/.netlify/functions/graphql',
+  uri: '/.netlify/functions/graphql',
 });
 const client = new ApolloClient({ cache, link });
 
 ReactDOM.render(
-    <ApolloProvider
-        client={client}
-    >
-        <App />
-    </ApolloProvider>,
-    document.getElementById('root'),
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
 );
