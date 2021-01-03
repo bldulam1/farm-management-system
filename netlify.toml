@@ -8,3 +8,8 @@
   command = "npm run start"
   port = 3000
   targetPort = 8080
+
+[[redirects]]
+  from = "/swine/*"
+  to = "/index.html"
+  status = 200
