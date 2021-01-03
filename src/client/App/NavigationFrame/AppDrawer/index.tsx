@@ -12,10 +12,10 @@ import HomeIcon from '@material-ui/icons/Home';
 import InboxIcon from '@material-ui/icons/Inbox';
 import MailIcon from '@material-ui/icons/Mail';
 import React from 'react';
-import CattleIcon from '../../assets/icons/CattleIcon';
-import PoultryIcon from '../../assets/icons/PoultryIcon';
-import SwineIcon from '../../assets/icons/SwineIcon';
-import useLayoutStyles from '../../theme/useLayoutStyles';
+import CattleIcon from '../../../assets/icons/CattleIcon';
+import PoultryIcon from '../../../assets/icons/PoultryIcon';
+import SwineIcon from '../../../assets/icons/SwineIcon';
+import useLayoutStyles from '../../../theme/useLayoutStyles';
 import NavigationItem from './NavigationItem';
 
 interface AppNavigationProps {
