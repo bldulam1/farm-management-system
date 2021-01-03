@@ -56,4 +56,7 @@ export default makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
 }));

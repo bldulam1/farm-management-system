@@ -16,13 +16,12 @@ import CattleIcon from '../../../assets/icons/CattleIcon';
 import PoultryIcon from '../../../assets/icons/PoultryIcon';
 import SwineIcon from '../../../assets/icons/SwineIcon';
 import useLayoutStyles from '../../../theme/useLayoutStyles';
-import NavigationItem from './NavigationItem';
+import NavigationItem from '../AppDrawer/NavigationItem';
 
 interface AppNavigationProps {
   open: boolean;
   onClose: () => void;
 }
-
 export default (props: AppNavigationProps) => {
   const classes = useLayoutStyles();
   const theme = useTheme();
@@ -51,6 +50,8 @@ export default (props: AppNavigationProps) => {
       <Divider />
       <List>
         <NavigationItem text="Home" link="/home" icon={<HomeIcon />} />
+        <NavigationItem text="Home" link="/home" icon={<HomeIcon />} />
+
         <NavigationItem text="Swine" link="/swine" icon={<SwineIcon />} />
         <NavigationItem text="Poultry" link="/poultry" icon={<PoultryIcon />} />
         <NavigationItem text="Cattle" link="/cattle" icon={<CattleIcon />} />
