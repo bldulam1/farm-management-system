@@ -1,3 +1,4 @@
+import { pink } from '@material-ui/core/colors';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const drawerWidth = 240;
@@ -58,5 +59,11 @@ export default makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing(4),
+  },
+  swineAvatar: {
+    color: `${theme.palette.getContrastText(pink[200])} !important`,
+    backgroundColor: `${pink[200]} !important`,
+    height: '1.3em !important',
+    width: '1.3em !important',
   },
 }));

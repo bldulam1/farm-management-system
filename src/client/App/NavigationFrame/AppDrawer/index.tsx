@@ -1,17 +1,15 @@
+import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import useTheme from '@material-ui/core/styles/useTheme';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import HomeIcon from '@material-ui/icons/Home';
-import InboxIcon from '@material-ui/icons/Inbox';
-import MailIcon from '@material-ui/icons/Mail';
 import React from 'react';
+import { Route } from 'react-router-dom';
+
 import CattleIcon from '../../../assets/icons/CattleIcon';
 import PoultryIcon from '../../../assets/icons/PoultryIcon';
 import SwineIcon from '../../../assets/icons/SwineIcon';
@@ -50,22 +48,49 @@ export default (props: AppNavigationProps) => {
       </div>
       <Divider />
       <List>
-        <NavigationItem text="Home" link="/home" icon={<HomeIcon />} />
+        <NavigationItem
+          text="Home"
+          link="/home"
+          icon={<HomeIcon color="primary" />}
+        />
         <NavigationItem text="Swine" link="/swine" icon={<SwineIcon />} />
         <NavigationItem text="Poultry" link="/poultry" icon={<PoultryIcon />} />
         <NavigationItem text="Cattle" link="/cattle" icon={<CattleIcon />} />
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+
+      <Route path="/swine">
+        <SwineSubComponents />
+      </Route>
     </Drawer>
+  );
+};
+
+const SwineSubComponents = () => {
+  const classes = useLayoutStyles();
+  return (
+    <List>
+      <NavigationItem
+        text="Hog Fattening"
+        link="/swine/hogs"
+        icon={
+          <Avatar classes={{ colorDefault: classes.swineAvatar }}>H</Avatar>
+        }
+      />
+      <NavigationItem
+        text="Sow"
+        link="/swine/sow"
+        icon={
+          <Avatar classes={{ colorDefault: classes.swineAvatar }}>S</Avatar>
+        }
+      />
+      <NavigationItem
+        text="Boar"
+        link="/swine/boar"
+        icon={
+          <Avatar classes={{ colorDefault: classes.swineAvatar }}>B</Avatar>
+        }
+      />
+    </List>
   );
 };

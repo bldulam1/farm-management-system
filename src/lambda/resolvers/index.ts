@@ -1,6 +1,11 @@
-const resolvers = {
+import { Sow, Resolvers } from '../../generated/types.d';
+
+const sows: Sow[] = [];
+
+const resolvers: Resolvers = {
   Query: {
-    hello: () => 'Hello world!',
+    hello: () => 'Test',
+    sows: () => sows,
   },
 };
 

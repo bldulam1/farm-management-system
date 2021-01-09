@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import React, { useContext } from 'react';
+
 import useLayoutStyles from '../../theme/useLayoutStyles';
 import { AppContext } from '../App.Context';
 import AppDrawer from './AppDrawer';
