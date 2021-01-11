@@ -1,4 +1,3 @@
-import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,12 +8,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import HomeIcon from '@material-ui/icons/Home';
 import React from 'react';
 import { Route } from 'react-router-dom';
-
 import CattleIcon from '../../../assets/icons/CattleIcon';
 import PoultryIcon from '../../../assets/icons/PoultryIcon';
 import SwineIcon from '../../../assets/icons/SwineIcon';
 import useLayoutStyles from '../../../theme/useLayoutStyles';
 import NavigationItem from './NavigationItem';
+import SwineRoutes from './SwineRoutes';
 
 interface AppNavigationProps {
   open: boolean;
@@ -60,37 +59,8 @@ export default (props: AppNavigationProps) => {
       <Divider />
 
       <Route path="/swine">
-        <SwineSubComponents />
+        <SwineRoutes />
       </Route>
     </Drawer>
-  );
-};
-
-const SwineSubComponents = () => {
-  const classes = useLayoutStyles();
-  return (
-    <List>
-      <NavigationItem
-        text="Hog Fattening"
-        link="/swine/hogs"
-        icon={
-          <Avatar classes={{ colorDefault: classes.swineAvatar }}>H</Avatar>
-        }
-      />
-      <NavigationItem
-        text="Sow"
-        link="/swine/sow"
-        icon={
-          <Avatar classes={{ colorDefault: classes.swineAvatar }}>S</Avatar>
-        }
-      />
-      <NavigationItem
-        text="Boar"
-        link="/swine/boar"
-        icon={
-          <Avatar classes={{ colorDefault: classes.swineAvatar }}>B</Avatar>
-        }
-      />
-    </List>
   );
 };

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Resolvers } from '../models';
 import {
   countDocs,
