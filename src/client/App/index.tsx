@@ -12,7 +12,7 @@ import Sow from './pages/Swine/Sow';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: 'http://localhost:4000/graphql',
+  uri: '/.netlify/functions/graphql',
 });
 
 export default function () {
