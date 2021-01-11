@@ -1,22 +1,19 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import ApolloClient from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
 import React, { useState } from 'react';
-import ApolloProvider from 'react-apollo/ApolloProvider';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import theme from '../theme/theme';
 import { AppContext, AppStateInterface, defaultAppState } from './App.Context';
 import Cattle from './pages/Cattle';
 import LandingPage from './pages/LandingPage';
 import Poultry from './pages/Poultry';
-import Swine from './pages/Swine';
+import Sow from './pages/Swine/Sow';
 
-const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: '/.netlify/functions/graphql',
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: 'http://localhost:4000/graphql',
 });
-const client = new ApolloClient({ cache, link });
 
 export default function () {
   const [appState, setAppState] = useState<AppStateInterface>(defaultAppState);
@@ -34,9 +31,13 @@ export default function () {
                 <LandingPage />
               </Route>
 
-              <Route path="/swine">
-                <Swine />
+              <Route path="/swine/sow">
+                <Sow />
               </Route>
+              <Route path="/swine">
+                <Sow />
+              </Route>
+
               <Route path="/cattle">
                 <Cattle />
               </Route>
