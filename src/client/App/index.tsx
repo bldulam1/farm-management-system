@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { SnackbarProvider } from 'notistack';
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -22,30 +23,32 @@ export default function () {
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <AppContext.Provider value={{ state: appState, setState: setAppState }}>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
-              <Route exact path="/home">
-                <LandingPage />
-              </Route>
+          <SnackbarProvider maxSnack={4}>
+            <BrowserRouter>
+              <Switch>
+                <Route exact path="/">
+                  <LandingPage />
+                </Route>
+                <Route exact path="/home">
+                  <LandingPage />
+                </Route>
 
-              <Route path="/swine/sow">
-                <Sow />
-              </Route>
-              <Route path="/swine">
-                <Sow />
-              </Route>
+                <Route path="/swine/sow">
+                  <Sow />
+                </Route>
+                <Route path="/swine">
+                  <Sow />
+                </Route>
 
-              <Route path="/cattle">
-                <Cattle />
-              </Route>
-              <Route path="/poultry">
-                <Poultry />
-              </Route>
-            </Switch>
-          </BrowserRouter>
+                <Route path="/cattle">
+                  <Cattle />
+                </Route>
+                <Route path="/poultry">
+                  <Poultry />
+                </Route>
+              </Switch>
+            </BrowserRouter>
+          </SnackbarProvider>
         </AppContext.Provider>
       </ThemeProvider>
     </ApolloProvider>

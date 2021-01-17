@@ -271,7 +271,7 @@ export type Sow = {
   tag: Scalars['String'];
   birthDate: Scalars['DateTime'];
   breed: Scalars['String'];
-  generation: GenerationEnum;
+  generation?: Maybe<GenerationEnum>;
   isImported: Scalars['Boolean'];
   purchaseDate?: Maybe<Scalars['DateTime']>;
   supplier?: Maybe<Supplier>;
@@ -897,7 +897,7 @@ export type SowResolvers<
   birthDate?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   breed?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   generation?: Resolver<
-    ResolversTypes['GenerationEnum'],
+    Maybe<ResolversTypes['GenerationEnum']>,
     ParentType,
     ContextType
   >;

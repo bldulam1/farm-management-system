@@ -1,0 +1,17 @@
+query GetSows($offset: Int, $limit: Int) {
+  sows(offset: $offset, limit: $limit) {
+    _id
+    tag
+    birthDate
+    breed
+    generation
+    purchaseDate
+  }
+  sowsCount
+}
+
+mutation CreateSow($input: SowInput!) {
+  sowCreate(input: $input) {
+    _id
+  }
+}

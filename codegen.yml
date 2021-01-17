@@ -1,7 +1,39 @@
 schema:
-  - 'src/lambda/schema/**/*.schema.ts'
+  - 'src/lambda/schema/query.schema.ts'
+overwrite: true
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+
 generates:
-  ./src/lambda/models.ts:
+  src/lambda/models.ts:
     plugins:
       - typescript
       - typescript-resolvers
+
+  src/client/queries/autogenerate/schemas.tsx:
+    documents: 'src/client/queries/**/**.gql'
+    plugins:
+      - typescript
+
+  src/client/queries/autogenerate/operations.tsx:
+    documents: 'src/client/queries/**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./schemas
+    plugins:
+      - typescript-operations
+
+  src/client/queries/autogenerate/hooks.tsx:
+    documents: 'src/client/queries/**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
+    plugins:
+      - typescript-react-apollo
+    config:
+      # Optionals
+      withHOC: false
+      withComponent: false
+      withHooks: true

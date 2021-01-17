@@ -89,7 +89,7 @@ const typeDefs = gql`
     tag: String!
     birthDate: DateTime!
     breed: String!
-    generation: GenerationEnum!
+    generation: GenerationEnum
     isImported: Boolean!
     purchaseDate: DateTime
     supplier: Supplier
